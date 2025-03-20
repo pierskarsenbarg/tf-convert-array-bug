@@ -22,10 +22,10 @@ for (const range of Object.entries(secretData).map(([k, v]) => ({key: k, value: 
         recoveryWindowInDays: 0,
     }));
 }
-const gitSecretsVersion: aws.secretsmanager.SecretVersion[] = [];
+const pkSecretsVersion: aws.secretsmanager.SecretVersion[] = [];
 pkSecrets.apply(rangeBody => {
     for (const range of rangeBody.map((v, k) => ({key: k, value: v}))) {
-        gitSecretsVersion.push(new aws.secretsmanager.SecretVersion(`git_secrets_version-${range.key}`, {
+        pkSecretsVersion.push(new aws.secretsmanager.SecretVersion(`pk_secrets_version-${range.key}`, {
             secretId: range.value.id,
             secretString: JSON.stringify({
                 name: secretData[range.key].name,

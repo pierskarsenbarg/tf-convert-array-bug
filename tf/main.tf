@@ -38,7 +38,7 @@ resource "aws_secretsmanager_secret" "pk_secrets" {
   recovery_window_in_days = 0
 }
 
-resource "aws_secretsmanager_secret_version" "git_secrets_version" {
+resource "aws_secretsmanager_secret_version" "pk_secrets_version" {
   for_each  = aws_secretsmanager_secret.pk_secrets
   secret_id = each.value.id
   secret_string = jsonencode({
