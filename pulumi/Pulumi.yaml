@@ -1,0 +1,5 @@
+name: tf
+runtime: nodejs
+config:
+  aws:region:
+    value: eu-west-1
