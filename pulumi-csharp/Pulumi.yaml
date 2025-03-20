@@ -1,0 +1,5 @@
+name: tf
+runtime: dotnet
+config:
+  aws:region:
+    value: eu-west-1
